@@ -3,8 +3,8 @@
 
 $servername = 'localhost';
 $user = 'root';
-$pass = '123';
-$dbname = 'ELECTRONACER';
+$pass = '';
+$dbname = 'electronacer';
 
 // Create connection
 $conn = new mysqli($servername, $user, $pass, $dbname);
@@ -14,7 +14,3 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Close the connection
-$conn->close();
-
-?>
