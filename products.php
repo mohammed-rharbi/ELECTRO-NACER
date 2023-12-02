@@ -1,16 +1,13 @@
 <?php
 include_once 'connect/connect.php';
 
-// Assuming you have a connection to your database established in connect/connect.php
-// Replace 'your_table_name' with your actual table name
+
 $p_query = "SELECT * FROM product";
 $products = mysqli_query($conn, $p_query);
 
 
-
 $c_query = "SELECT * FROM category";
 $categories = mysqli_query($conn, $c_query);
-
 
 
 if (isset($_GET['category_id'])) {
@@ -18,7 +15,6 @@ if (isset($_GET['category_id'])) {
   $p_query = "SELECT * FROM product WHERE category_id = $selected_category_id";
   $products = mysqli_query($conn, $p_query);
 }
-
 
 
 if (isset($_GET['out_of_stock'])) {
@@ -61,7 +57,7 @@ if (isset($_GET['out_of_stock'])) {
       </a>
 
       <a href="products.php?out_of_stock">
-        <button type="button" id="btn" class="btn btn-secondary">Out Of Stock</button>
+        <button type="button" id="btn" class="btn btn-secondary">low Stock</button>
       </a>
 
 

@@ -2,10 +2,10 @@
 
 session_start();
 include_once 'connect/connect.php';
-// Create connection
+
 $conn = new mysqli($servername, $user, $pass, $dbname);
 
-// Check connection
+
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
@@ -18,12 +18,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $result = $conn->query($sql);
 
   if ($result->num_rows == 1) {
-    // Login successful
+ 
     $_SESSION['username'] = $username;
     header("Location:products.php");
     exit();
   } else {
-    // Login failed
+
     $error = "Invalid username or password";
   }
 }
@@ -51,17 +51,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="col-lg-8">
           <h2 class="fw-bold mb-5 mt-5 text-white">login</h2>
           
-            <!-- name input -->
             <div class="form-outline mb-5">
               <input type="text" name= "username" class="form-control text-black" placeholder="user name" id="username">
             </div>
     
-            <!-- Password input -->
             <div class="form-outline mb-4">
               <input type="password" name= "password"; class="form-control text-black" placeholder="user password" id="password">
             </div>
     
-            <!-- Submit button -->
             <button type="submit" value = "login" class="btn btn-primary btn-block mt-5" id="btn">
               login
             </button>
